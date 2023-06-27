@@ -1,0 +1,14 @@
+<div>
+    {% extends "AgenciApp/empleadosVendedores.html" %}
+    {% load static %}
+    
+    {% block setEmpleadosVendedores %}
+        <p>Agregar nuevo empleado</p>
+        <form action="" method="post"> {% csrf_token %}
+            <table>
+                {{ miFormulario.as_table }}
+            </table>
+            <input type = "submit" value="Enviar">
+        </form>
+    {% endblock %}    
+</div>

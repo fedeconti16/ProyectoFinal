@@ -3,11 +3,10 @@ from AgenciApp.views import *
 
 urlpatterns = [
     path('inicio/', inicio),
-    path('autosEnStock/', autosEnStock, name="autosEnStock"),
-    path('clientesCompradores/', clientesCompradores, name="clientesCompradores"),
-    path('clientesVendedores/', clientesVendedores, name="clientesVendedores"),
-    path('empleadosVendedores/', empleadosVendedores, name="empleadosVendedores"),
-#    path('getEstudiantes/', getEstudiantes, name="getEstudiantes"),
-#    path('buscarEstudiante/', buscarEstudiante, name="buscarEstudiante"),
+    path('autosEnStock/', AutosEnStock, name="autosEnStock"),
+    path('clientesCompradores/', ClientesCompradores, name="clientesCompradores"),
+    path('clientesVendedores/', ClientesVendedores, name="clientesVendedores"),
+    path('empleadosVendedores/', EmpleadosVendedores, name="empleadosVendedores"),
+    #path('setAutosEnStock/', setAutosEnStock, name="setAutosEnStock"),
 
 ]

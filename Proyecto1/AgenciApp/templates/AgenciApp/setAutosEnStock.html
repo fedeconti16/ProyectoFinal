@@ -1,0 +1,14 @@
+<div>
+    {% extends "AgenciApp/autosEnStock.html" %}
+    {% load static %}
+    
+    {% block setAutosEnStock %}
+        <p>Agregar nuevo auto</p>
+        <form action="" method="post"> {% csrf_token %}
+            <table>
+                {{ miFormulario.as_table }}
+            </table>
+            <input type = "submit" value="Enviar">
+        </form>
+    {% endblock %}    
+</div>
