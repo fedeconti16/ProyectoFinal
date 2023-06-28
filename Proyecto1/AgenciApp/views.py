@@ -33,24 +33,7 @@ def AutosEnStock(request):
         miFormulario = autosFormulario()
     return render(request, "AgenciApp/setAutosEnStock.html", {"miFormulario":miFormulario})
 
-#    """if request.method == 'POST':
-#        estudiante = Estudiante(nombre=request.POST["nombre"],apellido=request.POST["apellido"], email=request.POST["email"])
-#        estudiante.save()
-#        return render(request,"AppCoder/inicio.html")
-#    return render(request, "AppCoder/setEstudiantes.html")"""
-#
-#def getEstudiantes(request):
-#    return render(request, "AppCoder/getEstudiantes.html")
-#
-#def buscarEstudiante(request):
-#    if request.GET["nombre"]:
-#        nombre = request.GET["nombre"]
-#        estudiantes = Estudiante.objects.filter(nombre = nombre)
-#        return render(request, "AppCoder/getEstudiantes.html", {"estudiantes":estudiantes})
-#    else:
-#        respuesta = "No se enviaron datos"
-#    
-#    return HttpResponse(respuesta)
+
 
 def ClientesCompradores(request):
     if request.method == 'POST':
@@ -90,3 +73,16 @@ def EmpleadosVendedores(request):
     else:
         miFormulario = empleadosFormulario()
     return render(request, "AgenciApp/setEmpleadosVendedores.html", {"miFormulario":miFormulario})
+
+def getAutosEnStock(request):
+    return render(request, "AgenciApp/getAutosEnStock.html")
+
+def buscarAutosEnStock(request):
+    marca = request.GET.get("marca")
+    if marca:
+        autos = autosEnStock.objects.filter(marca=marca)
+        return render(request, "AgenciApp/getAutosEnStock.html", {"autos": autos, "marca": marca})
+    else:
+        respuesta = "No se enviaron datos"
+    
+    return HttpResponse(respuesta)

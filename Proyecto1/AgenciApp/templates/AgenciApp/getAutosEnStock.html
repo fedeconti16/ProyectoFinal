@@ -1,0 +1,23 @@
+<div>
+    {% extends "AgenciApp/autosEnStock.html" %}
+    {% load static %}
+    
+    {% block getAutosEnStock %}
+        <p>Consultar autos en stock</p>
+        <form action="{% url 'buscarAutosEnStock' %}" method="GET">
+            <input placeholder="Marca" type="text" name="marca" id="marca">
+            <input type="submit" value="Buscar">
+        </form>
+
+        {% if autos %}
+            <ul>
+                {% for auto in autos %}
+                    <li>{{ auto.marca }}</li>
+                    <li>{{ auto.modelo }}</li>
+                    <li>{{ auto.km }}</li>
+                    <li>{{ auto.precio }}</li>
+                {% endfor %}
+            </ul>
+         {% endif %}
+    {% endblock %}    
+</div>

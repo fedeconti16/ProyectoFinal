@@ -8,5 +8,7 @@ urlpatterns = [
     path('clientesVendedores/', ClientesVendedores, name="clientesVendedores"),
     path('empleadosVendedores/', EmpleadosVendedores, name="empleadosVendedores"),
     #path('setAutosEnStock/', setAutosEnStock, name="setAutosEnStock"),
+    path('getAutosEnStock/', getAutosEnStock, name='getAutosEnStock'),
+    path('buscarAutosEnStock/', buscarAutosEnStock, name='buscarAutosEnStock'),
 
 ]

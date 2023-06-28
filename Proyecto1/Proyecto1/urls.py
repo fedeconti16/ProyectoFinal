@@ -20,8 +20,8 @@ from Proyecto1.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('saludo/', saludo),
-    path('probandoTemplate/', probandoTemplate),
+    #path('saludo/', saludo),
+    #path('probandoTemplate/', probandoTemplate),
     path('AgenciApp/', include('AgenciApp.urls')),
     
 
