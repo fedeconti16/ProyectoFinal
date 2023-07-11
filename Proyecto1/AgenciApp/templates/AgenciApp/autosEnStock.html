@@ -11,6 +11,7 @@
                 <th>km</th>
                 <th>Precio (U$S)</th>
                 <th>Eliminar</th>
+                <th>Editar</th>
             </tr>
 
                 {% for Auto in Autos %}
@@ -20,15 +21,12 @@
                         <td>{{Auto.km}}</td>
                         <td>{{Auto.precio}}</td>
                         <td><button class="btn btn-danger btnEliminar"><a href="{% url 'eliminarAuto' Auto.marca Auto.modelo %}">X</a></button></td>
+                        <td><button class="btn btn-warning btnEditar"><a href="{% url 'editarAuto' Auto.marca Auto.modelo %}">Editar</a></button></td>
                 {% endfor %}
 
         </table>
         <div class="formSetAutosEnStock">
             {% block setAutosEnStock %}
-            {% endblock %}
-        </div>
-        <div class="formGetAutosEnStock">
-            {% block getAutosEnStock %}
             {% endblock %}
         </div>
         

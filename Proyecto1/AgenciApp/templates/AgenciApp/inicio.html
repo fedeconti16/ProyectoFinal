@@ -14,7 +14,7 @@
     <!-- header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#page-top">Agencia de Autos</a>
+            <a class="navbar-brand" href="{% url 'inicio' %}">Agencia de Autos</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
@@ -22,9 +22,9 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="{% url 'setAutosEnStock' %}">Autos en stock</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'clientesCompradores' %}">Clientes Compradores</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'clientesVendedores' %}">Clientes Vendedores</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'empleadosVendedores' %}">Empleados Vendedores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'setClientesCompradores' %}">Clientes Compradores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'setClientesVendedores' %}">Clientes Vendedores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'setEmpleadosVendedores' %}">Empleados Vendedores</a></li>
                 </ul>
             </div>
         </div>

@@ -4,11 +4,34 @@
     
         {% block contenidoQueCambia %}
         <p>Clientes vendedores</p>
-        <p>
-            Aca se van a cargar los datos de los clientes que venden autos
-        </p>
+        <table class="tablaClientesVendedores">
+            <tr class="tituloTablaClientesVendedores">
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>e-mail</th>
+                <th>celular</th>
+                <th>Auto Vendido</th>
+                <th>Monto de la operacion</th>
+                <th>Eliminar</th>
+                <th>Editar</th>
+            </tr>
+
+                {% for Cliente in Clientes %}
+                    <tr>
+                        <td>{{Cliente.nombre}}</td>
+                        <td>{{Cliente.apellido}}</td>
+                        <td>{{Cliente.email}}</td>
+                        <td>{{Cliente.celular}}</td>
+                        <td>{{Cliente.autoVendido}}</td>
+                        <td>{{Cliente.montoOperacionVent}}</td>
+                        <td><button class="btn btn-danger btnEliminar"><a href="{% url 'eliminarClienteVendedor' Cliente.email %}">X</a></button></td>
+                        <td><button class="btn btn-warning btnEditar"><a href="{% url 'editarClienteVendedor' Cliente.email %}">Editar</a></button></td>
+                {% endfor %}
+
+        </table>
         <div class="formSetClientesVendedores">
             {% block setClientesVendedores %}
             {% endblock %}
+        </div>
         {% endblock %}
 </div>
