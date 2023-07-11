@@ -3,12 +3,12 @@
     {% load static %}
     
     {% block setAutosEnStock %}
-        <p>Agregar nuevo auto</p>
         <form action="" method="post"> {% csrf_token %}
-            <table>
-                {{ miFormulario.as_table }}
-            </table>
-            <input type = "submit" value="Enviar">
+            <input placeholder="Marca" type = "text" name="marca" required>
+            <input placeholder="Modelo" type = "text" name="modelo" required>
+            <input placeholder="Km" type = "number" name="km" required>
+            <input placeholder="Precio" type = "number" name="precio" required>
+            <input class="btn btn-primary" type="submit" value="Enviar">
         </form>
     {% endblock %}    
 </div>

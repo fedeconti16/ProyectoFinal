@@ -3,13 +3,35 @@ from django.template import loader
 from django.shortcuts import render
 from AgenciApp.models import *
 from AgenciApp.forms import *
+from django.shortcuts import redirect
 
 
 def inicio(request):
     return render(request, "AgenciApp/inicio.html")
 
 #def AutosEnStock(request):
-#    return render(request, "AgenciApp/autosEnStock.html")
+#    Autos = autosEnStock.objects.all()
+#    return render(request, "AgenciApp/autosEnStock.html",{"Autos": Autos})
+
+def setAutosEnStock(request):
+    Autos = autosEnStock.objects.all()
+    if request.method == 'POST':
+        auto = autosEnStock(marca=request.POST["marca"],modelo=request.POST["modelo"],km=request.POST["km"],precio=request.POST["precio"])
+        auto.save()  
+        miFormulario = autosFormulario()
+        return render(request, "AgenciApp/setAutosEnStock.html", {"miFormulario":miFormulario, "Autos":Autos})
+    else:
+        miFormulario = autosFormulario()
+    return render(request, "AgenciApp/setAutosEnStock.html", {"miFormulario":miFormulario, "Autos":Autos})
+
+def eliminarAuto(request, marca_auto, modelo_auto):
+    auto = autosEnStock.objects.get(marca = marca_auto, modelo = modelo_auto)
+    auto.delete()
+    miFormulario = autosFormulario()
+    Autos = autosEnStock.objects.all()
+    return redirect('setAutosEnStock')
+#    return render(request, "AgenciApp/setAutosEnStock.html", {"miFormulario":miFormulario, "Autos":Autos})
+
 
 #def ClientesCompradores(request):
 #    return render(request, "AgenciApp/clientesCompradores.html")
@@ -20,18 +42,18 @@ def inicio(request):
 #def EmpleadosVendedores(request):
 #    return render(request, "AgenciApp/empleadosVendedores.html")
 
-def AutosEnStock(request):
-    if request.method == 'POST':
-        miFormulario = autosFormulario(request.POST)
-        print(miFormulario)
-        if miFormulario.is_valid():
-            data = miFormulario.cleaned_data
-            auto = autosEnStock(marca=data["marca"],modelo=data["modelo"],km=data["km"],precio=data["precio"])    
-            auto.save()
-            return render(request,"AgenciApp/inicio.html")    
-    else:
-        miFormulario = autosFormulario()
-    return render(request, "AgenciApp/setAutosEnStock.html", {"miFormulario":miFormulario})
+#def AutosEnStock(request):
+#    if request.method == 'POST':
+#        miFormulario = autosFormulario(request.POST)
+#        print(miFormulario)
+#        if miFormulario.is_valid():
+#            data = miFormulario.cleaned_data
+#            auto = autosEnStock(marca=data["marca"],modelo=data["modelo"],km=data["km"],precio=data["precio"])    
+#            auto.save()
+#            return render(request,"AgenciApp/inicio.html")    
+#    else:
+#        miFormulario = autosFormulario()
+#    return render(request, "AgenciApp/setAutosEnStock.html", {"miFormulario":miFormulario})
 
 
 

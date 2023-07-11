@@ -1,0 +1,28 @@
+.contenido{
+    margin-top: 5px !important;
+    padding: 10px;
+}
+
+.tablaAutosEnStock {
+    text-align: center;
+
+}
+
+.tituloTablaAutosEnStock th{
+    background-color: rgb(34, 34, 34);
+    color: white;
+    padding-right: 150px !important;
+    text-align: center !important;
+}
+
+.tablaAutosEnStock th {
+    padding: 15px;
+    text-align: center !important;
+    padding-right: 130px !important;
+
+}
+
+.tituloAutosEnStock{
+    margin: 20px;
+    font-size: xx-large;
+}

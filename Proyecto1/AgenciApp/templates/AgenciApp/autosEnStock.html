@@ -3,10 +3,26 @@
     {% load static %}
     
         {% block contenidoQueCambia %}
-        <p>Autos en Stock</p>
-        <p>
-            Aca se van a cargar y buscar los datos de los autos en stock
-        </p>
+        <p class="tituloAutosEnStock">Autos en Stock</p>
+        <table class="tablaAutosEnStock">
+            <tr class="tituloTablaAutosEnStock">
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>km</th>
+                <th>Precio (U$S)</th>
+                <th>Eliminar</th>
+            </tr>
+
+                {% for Auto in Autos %}
+                    <tr>
+                        <td>{{Auto.marca}}</td>
+                        <td>{{Auto.modelo}}</td>
+                        <td>{{Auto.km}}</td>
+                        <td>{{Auto.precio}}</td>
+                        <td><button class="btn btn-danger btnEliminar"><a href="{% url 'eliminarAuto' Auto.marca Auto.modelo %}">X</a></button></td>
+                {% endfor %}
+
+        </table>
         <div class="formSetAutosEnStock">
             {% block setAutosEnStock %}
             {% endblock %}

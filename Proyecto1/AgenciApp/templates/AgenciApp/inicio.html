@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{% static 'AgenciApp/css/bootstrap.min.css'%}" rel="stylesheet"/>
+    <link href="{% static 'AgenciApp/css/AgenciAppStyle.css'%}" rel="stylesheet"/>
     <script src="{% static 'AgenciApp/js/bootstrap.min.js'%}"></script>
     <title>Agencia de Autos | Inicio</title>
 </head>
@@ -20,7 +21,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'autosEnStock' %}">Autos en stock</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'setAutosEnStock' %}">Autos en stock</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'clientesCompradores' %}">Clientes Compradores</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'clientesVendedores' %}">Clientes Vendedores</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'empleadosVendedores' %}">Empleados Vendedores</a></li>
