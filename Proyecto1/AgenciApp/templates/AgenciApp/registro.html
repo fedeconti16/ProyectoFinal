@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="{% static 'AgenciApp/css/bootstrap.min.css'%}" rel="stylesheet"/>
+    <link href="{% static 'AgenciApp/css/AgenciAppStyle.css'%}" rel="stylesheet"/>
+    <title>Registro AgenciApp</title>
+</head>
+<body>
+<div class="containerForm"> 
+    <form action="" method="POST" class="formLogin">
+        {% csrf_token %}
+        <h3 style="color: white; font-weight:bold; margin-bottom: 30px; display: flex; justify-content: center; align-items: center;">Registro AgenciApp</h3>
+        
+        {% for field in userCreate %}
+            {% if field.errors %}
+                <div class="errorlist">
+                    {% for error in field.errors %}
+                        <p class="error">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+        <div>
+            <input name="username" type="text" placeholder="User" class="inputLogin">
+        </div>
+        <div>
+            <input name="password1" type="password" placeholder="Password" class="inputLogin">
+        </div>
+        <div>
+            <input name="password2" type="password" placeholder="Password Confirmation" class="inputLogin">
+        </div>
+        <div>
+            <button class="btn btn-primary" type="submit">Registrar</button>
+        </div>
+        <p style="color: white;">Ya tenes una cuenta? <a href="/AgenciApp/login">Inicia sesion</a></p>
+    </form>
+</div>
+</body>
+</html>

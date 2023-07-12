@@ -4,13 +4,16 @@ from django.shortcuts import render
 from AgenciApp.models import *
 from AgenciApp.forms import *
 from django.shortcuts import redirect
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def inicio(request):
     return render(request, "AgenciApp/inicio.html")
 
 ############################################################################################################
-
+@login_required
 def setAutosEnStock(request):
     Autos = autosEnStock.objects.all()
     if request.method == 'POST':
@@ -51,7 +54,7 @@ def editarAuto(request, marca_auto, modelo_auto):
     return render(request, "AgenciApp/editarAutosEnStock.html", {"miFormulario": miFormulario})
 
 #########################################################################################################################
-
+@login_required
 def setClientesCompradores(request):
     Clientes = clientesCompradores.objects.all()
     if request.method == 'POST':
@@ -95,7 +98,7 @@ def editarClienteComprador(request, email_cliente):
 
 
 #########################################################################################################################
-
+@login_required
 def setClientesVendedores(request):
     Clientes = clientesVendedores.objects.all()
     if request.method == 'POST':
@@ -138,7 +141,7 @@ def editarClienteVendedor(request, email_cliente):
     return render(request, "AgenciApp/editarClientesVendedores.html", {"miFormulario": miFormulario})
 
 #########################################################################################################################
-
+@login_required
 def setEmpleadosVendedores(request):
     Empleados = empleadosVendedores.objects.all()
     if request.method == 'POST':
@@ -181,3 +184,23 @@ def editarEmpleadoVendedor(request, email_empleado):
 
 #########################################################################################################################
 
+def loginWeb(request):
+    if request.method == "POST":
+        user = authenticate(username = request.POST['user'], password = request.POST['password'])
+        if user is not None:
+            login(request, user)
+            return render(request,"AgenciApp/inicio.html")
+        else:
+            return render(request, 'AgenciApp/login.html', {'error': 'Usuario o contraseña incorrectos'})
+    else:
+        return render(request, 'AgenciApp/login.html')
+
+def registro(request):
+    if request.method == "POST":
+        userCreate = UserCreationForm(request.POST)
+        if userCreate.is_valid():
+            userCreate.save()
+            return render(request, 'AgenciApp/login.html')
+    else:
+        userCreate = UserCreationForm()
+    return render(request, 'AgenciApp/registro.html', {'userCreate': userCreate})

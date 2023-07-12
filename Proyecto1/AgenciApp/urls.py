@@ -1,7 +1,9 @@
 from django.urls import path
+from django.contrib.auth.views import LogoutView
 from AgenciApp.views import *
 
 urlpatterns = [
+    path('', loginWeb),
     path('inicio/', inicio, name='inicio'),
     path('setAutosEnStock/', setAutosEnStock, name='setAutosEnStock'),
     path('eliminarAuto/<marca_auto>/<modelo_auto>/', eliminarAuto, name='eliminarAuto'),
@@ -15,5 +17,9 @@ urlpatterns = [
     path('setEmpleadosVendedores/', setEmpleadosVendedores, name='setEmpleadosVendedores'),
     path('eliminarEmpleadoVendedor/<email_empleado>/', eliminarEmpleadoVendedor, name='eliminarEmpleadoVendedor'),
     path('editarEmpleadoVendedor/<email_empleado>/', editarEmpleadoVendedor, name='editarEmpleadoVendedor'),
+    path('login/', loginWeb, name="login"),
+    path('registro/', registro, name="registro"),
+    path('Logout/', LogoutView.as_view(next_page='login'), name="Logout"),
+
 
 ]
