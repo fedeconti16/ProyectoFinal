@@ -5,8 +5,10 @@ from AgenciApp.models import *
 from AgenciApp.forms import *
 from django.shortcuts import redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.contrib import messages
 
 @login_required
 def inicio(request):
@@ -204,3 +206,46 @@ def registro(request):
     else:
         userCreate = UserCreationForm()
     return render(request, 'AgenciApp/registro.html', {'userCreate': userCreate})
+
+#########################################################################################################################
+
+@login_required  
+def perfilview(request):
+    return render(request, 'AgenciApp/Perfil/Perfil.html')
+
+@login_required  
+def editarPerfil(request):
+    usuario = request.user
+    user_basic_info = User.objects.get(id = usuario.id)
+    if request.method == "POST":
+        form = UserEditForm(request.POST, instance = usuario)
+        if form.is_valid():
+            user_basic_info.username = form.cleaned_data.get('username')
+            user_basic_info.email = form.cleaned_data.get('email')
+            user_basic_info.first_name = form.cleaned_data.get('first_name')
+            user_basic_info.last_name = form.cleaned_data.get('last_name')
+            user_basic_info.save()
+            return render(request, 'AgenciApp/Perfil/Perfil.html')
+    else:
+        form = UserEditForm(initial= {'username': usuario.username, 'email': usuario.email, 'first_name': usuario.first_name, 'last_name': usuario.last_name })
+        return render(request, 'AgenciApp/Perfil/editarPerfil.html', {"form": form})
+
+
+@login_required
+def changePassword(request):
+    usuario = request.user    
+    if request.method == "POST":
+        form = ChangePasswordForm(data=request.POST, user=usuario)
+        if form.is_valid():
+            if request.POST['new_password1'] == request.POST['new_password2']:
+                user = form.save()
+                update_session_auth_hash(request, user)
+                messages.success(request, 'Contraseña actualizada exitosamente.')
+                return redirect('perfil')
+            else:
+                messages.error(request, 'Las contraseñas no coinciden.')
+        else:
+            messages.error(request, 'Error al cambiar la contraseña. Por favor, revise los campos.')
+    else:
+        form = ChangePasswordForm(user=usuario)
+    return render(request, 'AgenciApp/Perfil/changePassword.html', {"form": form})
