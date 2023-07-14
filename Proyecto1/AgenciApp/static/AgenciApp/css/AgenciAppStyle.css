@@ -77,3 +77,110 @@
     text-align: center !important;
     padding-right: 20px !important;
 }
+
+.containerForm{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: absolute !important;
+    height: 100% !important;
+    width: 100% !important;
+    background-image: url("../assets/img/FondoLogin.jpg");
+    background-size: cover;
+}
+
+.formLogin{
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 40px 20px 20px 20px;
+    border-radius: 5px;
+    width: 350px;
+    height: 400px;
+
+}
+.formLogin div{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputLogin{
+    border-radius: 5px;
+    border: 1px solid rgb(241, 88, 17);
+    width: 90%;
+}
+
+.profile-container {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.profile-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.profile-info {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-info li {
+    margin-bottom: 10px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.edit-profile-container {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.edit-profile-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.edit-profile-username {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.edit-profile-form {
+    margin-bottom: 20px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.change-password-link {
+    color: #28a745;
+    text-decoration: none;
+    font-size: 16px;
+}
+

@@ -25,6 +25,7 @@
                     <li class="nav-item"><a class="nav-link" href="{% url 'setClientesCompradores' %}">Clientes Compradores</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'setClientesVendedores' %}">Clientes Vendedores</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'setEmpleadosVendedores' %}">Empleados Vendedores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'mensajes_lista' %}">Mensajes</a></li>
                     <li class="nav-item"><a class="nav-link navText" href="{% url 'perfil' %}">{{user.username}}</a></li>
                     <li class="nav-item"><a class="nav-link navText" href="{% url 'Logout' %}">Logout</a></li> 
                 </ul>
@@ -33,7 +34,7 @@
     </nav>
     <div class="contenido">
         {% block contenidoQueCambia %}
-
+            <p>HOLAAAAAAAAAAAAAAAAAAAA</p>
         {% endblock %}
     </div>
 </body>

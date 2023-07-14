@@ -12,18 +12,18 @@
 <body>
     <div class="containerForm"> 
         <form action="" method="POST" class="formLogin"> {% csrf_token %}
-            <h3 style="color: white; font-weight:bold; margin-bottom: 30px; display: flex; justify-content: center; align-items: center;">Login AgenciApp</h3>
+            <h3 style="color: white; font-weight:bold; margin-bottom: 30px; display: flex; justify-content: center; align-items: center;">AgenciApp</h3>
             <div>
-                <input name="user" type="text" placeholder="User" class="inputLogin">
+                <input name="user" type="text" placeholder="Usuario" class="inputLogin">
             </div>
             <div>
-                <input name="password" type="password" placeholder="Password" class="inputLogin">
+                <input name="password" type="password" placeholder="Comtraseña" class="inputLogin">
             </div>
             <div>
-                <button class="btn btn-primary" type="submit">Login</button>
+                <button class="btn btn-primary" type="submit">Iniciar Sesion</button>
             </div>
             {% if error %}
-                <p style="color: red;">{{error}}</p>
+                <p style="color: rgb(249, 5, 5);">{{error}}</p>
             {% endif %}
             <p style="color: white;">¿Todavia no tenes cuenta? <a href="/AgenciApp/registro">Registrate</a></p>
         </form>

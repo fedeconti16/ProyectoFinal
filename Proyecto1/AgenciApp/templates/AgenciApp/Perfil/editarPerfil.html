@@ -2,14 +2,16 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-<h3>Editar Perfil</h3>
-<h6>{{ user.username }}</h6>
+    <div class="edit-profile-container">
+        <h3 class="edit-profile-title">Editar Perfil</h3>
+        <h6 class="edit-profile-username">{{ user.username }}</h6>
 
-<form method="POST"> {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-    <input type="submit" value="Editar perfil">
-</form>
-<a href="{% url 'changePassword' %}">Cambiar contraseña</a>
+        <form method="POST" class="edit-profile-form"> {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <input type="submit" class="btn btn-success" value="Editar perfil">
+        </form>
+        <a href="{% url 'changePassword' %}" class="change-password-link">Cambiar contraseña</a>
+    </div>
 {% endblock %}

@@ -13,7 +13,7 @@
 <div class="containerForm"> 
     <form action="" method="POST" class="formLogin">
         {% csrf_token %}
-        <h3 style="color: white; font-weight:bold; margin-bottom: 30px; display: flex; justify-content: center; align-items: center;">Registro AgenciApp</h3>
+        <h3 style="color: white; font-weight:bold; margin-bottom: 30px; display: flex; justify-content: center; align-items: center;">Registrate</h3>
         
         {% for field in userCreate %}
             {% if field.errors %}
@@ -26,18 +26,18 @@
         {% endfor %}
         
         <div>
-            <input name="username" type="text" placeholder="User" class="inputLogin">
+            <input name="username" type="text" placeholder="Usuario" class="inputLogin">
         </div>
         <div>
-            <input name="password1" type="password" placeholder="Password" class="inputLogin">
+            <input name="password1" type="password" placeholder="Contraseña" class="inputLogin">
         </div>
         <div>
-            <input name="password2" type="password" placeholder="Password Confirmation" class="inputLogin">
+            <input name="password2" type="password" placeholder="Confirmacion Contraseña" class="inputLogin">
         </div>
         <div>
             <button class="btn btn-primary" type="submit">Registrar</button>
         </div>
-        <p style="color: white;">Ya tenes una cuenta? <a href="/AgenciApp/login">Inicia sesion</a></p>
+        <p style="color: white;">¿Ya tenes una cuenta? <a href="/AgenciApp/login">Inicia sesion</a></p>
     </form>
 </div>
 </body>

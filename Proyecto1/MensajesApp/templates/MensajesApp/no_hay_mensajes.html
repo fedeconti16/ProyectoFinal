@@ -1,0 +1,26 @@
+{% extends 'AgenciApp/inicio.html' %}
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <h1>Mensajes</h1>
+    {% if no_hay_mensajes %}
+        <p>No hay mensajes</p>
+    {% else %}
+        {% for mensaje in mensajes %}
+            <div class="mensaje">
+                <p>Autor: {{ mensaje.autor.username }}</p>
+                <p>{{ mensaje.contenido }}</p>
+                <p>Fecha: {{ mensaje.timestamp }}</p>
+                {% if mensaje.autor == user or user.is_superuser %}
+                    <form method="post" action="{% url 'eliminar_mensaje' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="mensaje_id" value="{{ mensaje.id }}">
+                        <button type="submit">Eliminar</button>
+                    </form>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    <a href="{% url 'crear_mensaje' %}">Nuevo Mensaje</a>
+{% endblock %}

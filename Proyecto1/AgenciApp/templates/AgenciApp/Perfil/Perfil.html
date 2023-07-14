@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-    <div>
-        <ul>
-            <li>{{user.username}}</li>
-            <li>{{user.email}}</li>
-            <li>{{user.first_name}}</li>
-            <li>{{user.last_name}}</li>
+    <div class="profile-container">
+        <h1 class="profile-title">Perfil</h1>
+        <ul class="profile-info">
+            <li><strong>Usuario:</strong> {{ user.username }}</li>
+            <li><strong>Email:</strong> {{ user.email }}</li>
+            <li><strong>Nombre:</strong> {{ user.first_name }}</li>
+            <li><strong>Apellido:</strong> {{ user.last_name }}</li>
         </ul>
-        <a href="{% url 'editarPerfil' %}" class="btn btn-success" style="text-decoration: none; color: white;"> Editar Perfil</a>
-        <!--a href="/AgenciApp/Perfil/changeAvatar" class="btn btn-success" style="text-decoration: none; color: white;"> Avatar</a-->
+        <a href="{% url 'editarPerfil' %}" class="btn btn-success">Editar Perfil</a>
     </div>
 {% endblock %}

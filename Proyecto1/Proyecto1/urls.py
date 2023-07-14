@@ -24,6 +24,6 @@ urlpatterns = [
     #path('saludo/', saludo),
     #path('probandoTemplate/', probandoTemplate),
     path('AgenciApp/', include('AgenciApp.urls')),
+    path('mensajes/', include('MensajesApp.urls')),
     
-
 ]

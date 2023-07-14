@@ -37,16 +37,19 @@ class UserEditForm(UserChangeForm):
     email = forms.CharField(widget= forms.TextInput(attrs={"placeholder":"Email"}))
     first_name = forms.CharField(widget= forms.TextInput(attrs={"placeholder":"First Name"}))
     last_name = forms.CharField(widget= forms.TextInput(attrs={"placeholder":"Last Name"}))
+    password = None
 
     class Meta:
         model = User
         fields = ['username', 'email', 'first_name', 'last_name']
         help_texts = {k:"" for k in fields}
+    
+            
 
 class ChangePasswordForm(PasswordChangeForm):
-    old_password = forms.CharField(label = "", widget= forms.PasswordInput(attrs={"placeholder":"Old password"}))
-    new_password1 = forms.CharField(label = "", widget= forms.PasswordInput(attrs={"placeholder":"New password"}))
-    new_password2 = forms.CharField(label = "", widget= forms.PasswordInput(attrs={"placeholder":"Confirmation new password"}))
+    old_password = forms.CharField(label = "", widget= forms.PasswordInput(attrs={"placeholder":"Contraseña Actual"}))
+    new_password1 = forms.CharField(label = "", widget= forms.PasswordInput(attrs={"placeholder":"Nueva Contraseña"}))
+    new_password2 = forms.CharField(label = "", widget= forms.PasswordInput(attrs={"placeholder":"Confirmar Contraseña"}))
 
     class Meta:
         model = User
