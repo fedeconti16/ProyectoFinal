@@ -1,7 +1,8 @@
 <div>
+    {% extends "AgenciApp/inicio.html" %}
     {% load static %}
     
-    {% block setClientesVendedores %}
+    {% block contenidoQueCambia %}
     <form action="" method="post"> {% csrf_token %}
         <table>
             {{ miFormulario.as_table }}

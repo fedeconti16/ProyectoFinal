@@ -56,5 +56,3 @@ class ChangePasswordForm(PasswordChangeForm):
         fields = ['old_password', 'new_password1', 'new_password2']
         help_texts = {k:"" for k in fields}
 
-#class AvatarForm(forms.Form):
-#    avatar = forms.ImageField()
