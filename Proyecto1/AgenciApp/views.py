@@ -202,7 +202,7 @@ def registro(request):
         userCreate = UserCreationForm(request.POST)
         if userCreate.is_valid():
             userCreate.save()
-            return render(request, 'AgenciApp/login.html')
+            return redirect('login')
     else:
         userCreate = UserCreationForm()
     return render(request, 'AgenciApp/registro.html', {'userCreate': userCreate})
