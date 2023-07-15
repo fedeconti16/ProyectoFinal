@@ -2,11 +2,19 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-    <h1>Nuevo Mensaje</h1>
-    <form method="POST" action="{% url 'crear_mensaje' %}">
-        {% csrf_token %}
-        <textarea name="content" rows="4" cols="50"></textarea>
-        <br>
-        <input type="submit" value="Enviar">
-    </form>
+    <div class="edit-profile-container">
+        <h1 class="mb-4">Nuevo Mensaje</h1>
+        <form method="POST" action="{% url 'crear_mensaje' %}" enctype="multipart/form-data" class="message-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.contenido.id_for_label }}">Mensaje:</label>
+                {{ form.contenido }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.imagen.id_for_label }}">Imagen:</label>
+                {{ form.imagen }}
+            </div>
+            <input class="btn btn-primary" type="submit" value="Enviar">
+        </form>
+    </div>
 {% endblock %}

@@ -249,3 +249,7 @@ def changePassword(request):
     else:
         form = ChangePasswordForm(user=usuario)
     return render(request, 'AgenciApp/Perfil/changePassword.html', {"form": form})
+
+@login_required
+def about(request):
+    return render(request, "AgenciApp/about.html")

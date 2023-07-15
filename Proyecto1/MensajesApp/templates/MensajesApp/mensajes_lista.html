@@ -4,10 +4,13 @@
 {% block contenidoQueCambia %}
     <h1 class="mb-4">Mensajes</h1>
     {% for mensaje in mensajes %}
-        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card text-white bg-dark mb-3" style="max-width: 25rem;">
             <div class="card-body">
                 <h3 class="card-title">{{ mensaje.autor.username }}</h3>
                 <p class="card-text">{{ mensaje.contenido }}</p>
+                {% if mensaje.imagen %}
+                    <img src="{{ mensaje.imagen.url }}" alt="Mensaje Image" class="mensaje-imagen" style="max-width: 22rem; height: auto;">
+                {% endif %}
                 <p class="card-text" style="color: rgb(154, 154, 154); font-size: 0.75rem">{{ mensaje.timestamp }}</p>
                 {% if mensaje.autor == request.user or request.user.is_superuser %}
                     <form method="POST" action="{% url 'mensajes_lista' %}">

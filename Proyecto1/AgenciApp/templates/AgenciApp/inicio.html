@@ -34,8 +34,19 @@
     </nav>
     <div class="contenido">
         {% block contenidoQueCambia %}
-            <p>HOLAAAAAAAAAAAAAAAAAAAA</p>
+            <body class="container_inicio">
+                <div class="px-4 py-5 my-5 text-center" style="background: rgba(0, 0, 0, 0.65)!important;">
+                    <h1 class="display-5 fw-bold text-body-emphasis" style="color: rgb(252, 251, 251)!important;">AgenciApp</h1>
+                    <div class="col-lg-6 mx-auto">
+                      <p class="lead mb-4" style="color: rgb(254, 253, 253);">Esta aplicación permite administrar la información de una agencia de autos usados. Se pueden agregar o quitar autos del stock y manejar los datos de los clientes y los empleados. Tambien permite dejar mensajes para que otros usarios registrados los puedan ver.</p>
+                      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <a href="{% url 'about' %}" class="btn btn-primary btn-lg px-4 gap-3">Sobre mi</a>
+                      </div>
+                    </div>
+                </div>
+            </body>
         {% endblock %}
     </div>
 </body>
 </html>
+

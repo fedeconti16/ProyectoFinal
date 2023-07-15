@@ -1,6 +1,7 @@
 .contenido{
     margin-top: 5px !important;
     padding: 10px;
+    
 }
 
 .tablaAutosEnStock {
@@ -184,3 +185,28 @@
     font-size: 16px;
 }
 
+.container_inicio{
+    background-image: url("../assets/img/Fondo.jpg");
+    background-size: cover;
+    
+}
+
+.division_inicio{
+    background: rgba(0, 0, 0, 0.85);
+    padding: 40px 20px 20px 20px;
+    border-radius: 5px;
+    width: 350px;
+    height: 400px;
+}
+
+.btnEliminar a{
+    border-radius: 15px !important;
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.btnEditar a{
+    border-radius: 15px !important;
+    color: rgb(0, 0, 0) !important;
+    text-decoration: none !important;
+}

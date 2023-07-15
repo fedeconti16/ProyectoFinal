@@ -23,6 +23,7 @@ urlpatterns = [
     path('perfil/', perfilview, name="perfil"),
     path('Perfil/editarPerfil/', editarPerfil, name="editarPerfil"),
     path('Perfil/changePassword/', changePassword, name="changePassword"),
-    #path('Perfil/changeAvatar/', editAvatar, name="editAvatar"),
+    path('about/', about, name="about"),
+
 
 ]

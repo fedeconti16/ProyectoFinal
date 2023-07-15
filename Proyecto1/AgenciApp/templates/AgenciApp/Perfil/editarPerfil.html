@@ -10,8 +10,8 @@
             <table>
                 {{ form.as_table }}
             </table>
-            <input type="submit" class="btn btn-success" value="Editar perfil">
+            <input type="submit" class="btn btn-success" value="Aceptar">
         </form>
-        <a href="{% url 'changePassword' %}" class="change-password-link">Cambiar contraseña</a>
+        <a href="{% url 'changePassword' %}" class="btn btn-primary">Cambiar contraseña</a>
     </div>
 {% endblock %}
